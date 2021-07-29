@@ -11,9 +11,22 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let mArray = [1.1,1.2]
+        let mArrayString = ["Apple","Coconut","Pineapple"]
+        print(mArray.sum())
+        print(mArrayString.concatenate())
     }
-
-
 }
 
+extension Array where Element : Numeric {
+    func sum() -> Element {
+        return self.reduce(0,{$0+$1})
+    }
+}
+
+
+extension Array where Element == String {
+    func concatenate() -> String{
+        return self.reduce("", {$0+$1})
+    }
+}
